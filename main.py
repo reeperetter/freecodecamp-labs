@@ -12,15 +12,14 @@ class HashTable:
         else:
             self.collection[index] = {key: value}
 
-    def remove(self, key):
-        pass
+    def remove(self, key: str) -> None:
+        try:
+            del self.collection[self.hash(key)][key]
+        except:
+            return
 
-    def lookup(self, key):
-        pass
-    
-
-x = HashTable()
-x.add('ab', 'ab')
-x.add('ba', 'ba')
-x.add('coma', 'coma')
-print(x.collection)
+    def lookup(self, key: str) -> str | None:
+        try:
+            return self.collection[self.hash(key)][key]
+        except:
+            return None

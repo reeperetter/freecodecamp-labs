@@ -6,14 +6,14 @@ def square_root_bisection(number: int | float, tolerance: int | float = 0.5, ite
         print(f'The square root of {number} is {number}')
         return number
 
-    low = 0.0
+    low = 0
     high = max(1.0, float(number))
 
     for _ in range(iterations):
-        mid = (low + high) / 2.0
+        mid = (low + high) / 2
         square_mid = mid ** 2
 
-        if abs(square_mid - number) < tolerance:
+        if high - low < tolerance:
             print(f'The square root of {number} is approximately {mid}')
             return mid
 
